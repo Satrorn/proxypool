@@ -31,8 +31,6 @@ func setupRouter() {
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "assets/html/index.html", gin.H{
 			"domain":               config.Config.Domain,
-			"request":              config.Config.Request,
-			"port":                 config.Config.Port,
 			"getters_count":        cache.GettersCount,
 			"all_proxies_count":    cache.AllProxiesCount,
 			"ss_proxies_count":     cache.SSProxiesCount,
@@ -48,32 +46,24 @@ func setupRouter() {
 	router.GET("/clash", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "assets/html/clash.html", gin.H{
 			"domain": config.Config.Domain,
-			"request":              config.Config.Request,
-			"port":                 config.Config.Port,
 		})
 	})
 
 	router.GET("/surge", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "assets/html/surge.html", gin.H{
 			"domain": config.Config.Domain,
-			"request":              config.Config.Request,
-			"port":                 config.Config.Port,
 		})
 	})
 
 	router.GET("/clash/config", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "assets/html/clash-config.yaml", gin.H{
 			"domain": config.Config.Domain,
-			"request":              config.Config.Request,
-			"port":                 config.Config.Port,
 		})
 	})
 
 	router.GET("/surge/config", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "assets/html/surge.conf", gin.H{
 			"domain": config.Config.Domain,
-			"request":              config.Config.Request,
-			"port":                 config.Config.Port,
 		})
 	})
 
